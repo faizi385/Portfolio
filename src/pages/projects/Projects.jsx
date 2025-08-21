@@ -25,7 +25,7 @@ const projects = [
     title: 'Boomerang',
     description: 'Discover profitable nearby businesses with map-based search, filters, and quick signals to  local investments.',
     techStack: ['React ', 'Laravel', 'InertiaJs','TailwindCss', 'PostgreSQL'],
-    githubUrl: 'https://github.com/yourusername/project-three',
+    githubUrl: 'https://github.com/faizi385/Boomerang',
     emoji: '📱',
     image: '/images/picture4.png'
   },
