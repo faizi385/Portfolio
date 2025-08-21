@@ -20,11 +20,9 @@ const Home = () => {
               Full Stack Web Developer
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
-  I am a passionate full-stack developer with hands-on experience in building scalable, responsive, and user-friendly web applications. 
-  Skilled in React, Laravel, Vue.js, and modern frameworks, I enjoy turning ideas into practical solutions that create real business impact.
-  I’m currently focused on developing dynamic applications that blend clean design with strong performance.
-</p>
-
+              I build exceptional digital experiences with modern web technologies.
+              Currently focused on creating beautiful, responsive, and user-friendly applications.
+            </p>
           </motion.div>
 
           <motion.div

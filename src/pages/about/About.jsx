@@ -38,13 +38,14 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">About Me</h2>
           <div className="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            I'm a passionate Full Stack Developer with a strong foundation in both frontend and backend technologies.
-            I love turning ideas into reality through clean, efficient, and scalable code.
-          </p>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            With a background in [Your Background], I bring a unique perspective to problem-solving
-            and a commitment to creating exceptional user experiences.
-          </p>
+  I'm a passionate Full Stack Developer with expertise in both frontend and backend technologies. 
+  I enjoy transforming ideas into real-world applications through clean, efficient, and scalable code.
+</p>
+<p className="text-lg text-gray-600 dark:text-gray-300">
+  With experience in React, Laravel, Vue.js, and modern frameworks, I bring a problem-solving mindset 
+  and a commitment to building user-friendly, high-performance solutions.
+</p>
+
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">

@@ -10,7 +10,7 @@ const projects = [
     githubUrl: 'https://github.com/yourusername/project-one',
     demoUrl: 'http://stampbox.com/',
     emoji: '🚀',
-    image: '/src/assets/images/Picture2.png'
+    image: '/images/Picture2.png'
   },
   {
     title: 'Fixtrack',
@@ -19,7 +19,7 @@ const projects = [
     githubUrl: 'https://github.com/yourusername/project-two',
     demoUrl: 'https://fixtrack.com/',
     emoji: '🎨',
-    image: '/src/assets/images/picture3.png'
+    image: '/images/picture3.png'
   },
   {
     title: 'Boomerang',
@@ -27,7 +27,7 @@ const projects = [
     techStack: ['React ', 'Laravel', 'InertiaJs','TailwindCss', 'PostgreSQL'],
     githubUrl: 'https://github.com/yourusername/project-three',
     emoji: '📱',
-    image: '/src/assets/images/picture4.png'
+    image: '/images/picture4.png'
   },
   {
     title: 'Project Four',
