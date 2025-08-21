@@ -44,7 +44,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav  style={{width: '84.5%'}}
+    <nav  style={{ width: '84.5%' }}
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled 
           ? 'bg-white/90 dark:bg-dark-surface/90 shadow-md py-2 backdrop-blur-sm' 
@@ -116,6 +116,30 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 bg-white dark:bg-dark-surface rounded-lg shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.id}
+                  to={link.id}
+                  smooth={true}
+                  duration={500}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    activeSection === link.id
+                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-gray-800'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

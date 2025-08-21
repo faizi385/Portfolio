@@ -4,27 +4,30 @@ import ProjectCard from '../../components/ui/ProjectCard';
 // Sample project data - replace with your actual projects
 const projects = [
   {
-    title: 'Project One',
-    description: 'A brief description of your first project. Highlight the problem it solves and the technologies used.',
-    techStack: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+    title: 'Stampbox',
+    description: 'A web platform for stamp collectors to organize and trade collections, built with Laravel, Vue.js, and MySQL.',
+    techStack: ['PHP', 'Laravel', 'VueJs', 'Bootstrap', 'MySql'],
     githubUrl: 'https://github.com/yourusername/project-one',
-    demoUrl: 'https://project-one-demo.com',
-    emoji: '🚀'
+    demoUrl: 'http://stampbox.com/',
+    emoji: '🚀',
+    image: '/src/assets/images/Picture2.png'
   },
   {
-    title: 'Project Two',
-    description: 'Description of your second project. Explain what makes it unique and the value it provides to users.',
-    techStack: ['Next.js', 'TypeScript', 'Firebase', 'Chakra UI'],
+    title: 'Fixtrack',
+    description: 'A repair management platform for tracking devices, tickets, and operations with a multi-tenant setup.',
+    techStack: ['PHP', 'Laravel', 'VueJs', 'TailwindCss', 'MySql', 'inertiaJs', 'multitenant'],
     githubUrl: 'https://github.com/yourusername/project-two',
-    demoUrl: 'https://project-two-demo.com',
-    emoji: '🎨'
+    demoUrl: 'https://fixtrack.com/',
+    emoji: '🎨',
+    image: '/src/assets/images/picture3.png'
   },
   {
-    title: 'Project Three',
-    description: 'Overview of your third project. Mention any challenges you overcame and what you learned.',
-    techStack: ['React Native', 'Express', 'PostgreSQL', 'Redux'],
+    title: 'Boomerang',
+    description: 'Discover profitable nearby businesses with map-based search, filters, and quick signals to  local investments.',
+    techStack: ['React ', 'Laravel', 'InertiaJs','TailwindCss', 'PostgreSQL'],
     githubUrl: 'https://github.com/yourusername/project-three',
-    emoji: '📱'
+    emoji: '📱',
+    image: '/src/assets/images/picture4.png'
   },
   {
     title: 'Project Four',
@@ -78,7 +81,7 @@ const Projects = () => {
           className="mt-16 text-center"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/faizi385"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl"

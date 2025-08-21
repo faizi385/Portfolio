@@ -82,11 +82,11 @@ const Contact = () => {
         ) : (
           <form
             onSubmit={handleSubmit}
-            className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg rounded-2xl p-10 shadow-2xl border border-gray-200 dark:border-gray-700"
+            className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-200 dark:border-gray-700"
           >
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-left text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 ml-1">
                   Name
                 </label>
                 <input
@@ -102,7 +102,7 @@ const Contact = () => {
               </div>
   
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-left text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 ml-1">
                   Email
                 </label>
                 <input
@@ -118,13 +118,13 @@ const Contact = () => {
               </div>
   
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-left text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 ml-1">
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
+                  rows="4"
                   value={formData.message}
                   onChange={handleChange}
                   required
@@ -168,11 +168,11 @@ const Contact = () => {
           >
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Or reach out directly</h3>
             <p className="text-gray-600 mb-6">
-              Email me at <a href="mailto:your.email@example.com" className="text-primary-600 hover:underline">your.email@example.com</a>
+              Email me at <a href="mailto:faizanmoeen385@gmail.com" className="text-primary-600 hover:underline">faizanmoeen385@gmail.com</a>
             </p>
             <div className="flex justify-center space-x-6">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/faizi385"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-900 transition-colors"
@@ -184,7 +184,7 @@ const Contact = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/faizan-moeen-918660350/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-600 transition-colors"

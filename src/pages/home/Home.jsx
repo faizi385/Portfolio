@@ -20,9 +20,11 @@ const Home = () => {
               Full Stack Web Developer
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
-              I build exceptional digital experiences with modern web technologies.
-              Currently focused on creating beautiful, responsive, and user-friendly applications.
-            </p>
+  I am a passionate full-stack developer with hands-on experience in building scalable, responsive, and user-friendly web applications. 
+  Skilled in React, Laravel, Vue.js, and modern frameworks, I enjoy turning ideas into practical solutions that create real business impact.
+  I’m currently focused on developing dynamic applications that blend clean design with strong performance.
+</p>
+
           </motion.div>
 
           <motion.div
@@ -35,7 +37,7 @@ const Home = () => {
               to="contact"
               smooth={true}
               duration={500}
-              className="px-8 py-3.5 bg-primary-600 hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              className="cursor-pointer px-8 py-3.5 bg-primary-600 hover:bg-primary-700 dark:bg-primary-700 dark:hover:bg-primary-600 text-white font-medium rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             >
               Get In Touch
             </Link>
@@ -43,20 +45,21 @@ const Home = () => {
               to="projects"
               smooth={true}
               duration={500}
-              className="px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+              className="cursor-pointer px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             >
               View My Work
             </Link>
           </motion.div>
 
-          <motion.div 
+
+          <motion.div
             className="flex justify-center space-x-6 mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/faizi385"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -65,7 +68,7 @@ const Home = () => {
               <FaGithub className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/faizan-moeen-918660350/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30"
@@ -88,7 +91,7 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="absolute bottom-10 left-0 right-0 flex justify-center w-full"
+            className="hidden sm:flex absolute bottom-10 left-0 right-0 justify-center w-full"
           >
             <Link
               to="about"

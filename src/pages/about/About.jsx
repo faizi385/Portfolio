@@ -2,25 +2,25 @@ import { motion } from 'framer-motion';
 import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
 
 const skills = [
-  { 
-    category: 'Frontend', 
-    icon: <FaCode className="text-primary-500 text-2xl" />,
-    items: ['React', 'JavaScript', 'TypeScript', 'HTML5/CSS3', 'Tailwind CSS'] 
-  },
-  { 
-    category: 'Backend', 
+  {
+    category: 'Backend',
     icon: <FaServer className="text-primary-500 text-2xl" />,
-    items: ['Node.js', 'Express', 'Python', 'Django', 'RESTful APIs'] 
+    items: ['PHP', 'Laravel', 'GrapQL', 'RESTful APIs', 'Python', 'Django']
   },
-  { 
-    category: 'Database', 
+  {
+    category: 'Frontend',
+    icon: <FaCode className="text-primary-500 text-2xl" />,
+    items: ['Vue.js', 'Vuetify', 'React', 'JavaScript', 'TypeScript', 'HTML5/CSS3', 'Tailwind CSS', 'Bootstrap']
+  },
+  {
+    category: 'Database',
     icon: <FaDatabase className="text-primary-500 text-2xl" />,
-    items: ['MongoDB', 'PostgreSQL', 'Firebase'] 
+    items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase']
   },
-  { 
-    category: 'Tools', 
+  {
+    category: 'Tools',
     icon: <FaTools className="text-primary-500 text-2xl" />,
-    items: ['Git/GitHub', 'Docker', 'VS Code', 'Figma', 'Postman'] 
+    items: ['Git/GitHub', 'Docker', 'VS Code', 'Figma', 'Postman', 'AWS']
   },
 ];
 
