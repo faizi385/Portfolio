@@ -30,13 +30,31 @@ const projects = [
     image: '/images/picture4.png'
   },
   {
-    title: 'Project Four',
-    description: 'Details about your fourth project. Highlight any interesting algorithms or design patterns used.',
-    techStack: ['Python', 'Django', 'Docker', 'AWS'],
+    title: 'Omaha Food Lovers',
+    description: 'A community-driven platform for discovering and sharing the best food spots in Omaha, built to connect local food lovers with restaurants.',
+    techStack: ['VueJs', 'Laravel', 'TailwindCss', 'MySql'],
     githubUrl: 'https://github.com/yourusername/project-four',
-    demoUrl: 'https://project-four-demo.com',
-    emoji: '🤖'
+    demoUrl: 'https://omahafoodlovers.com/membership',
+    emoji: '🤖',
+    image: '/images/picture5.png'
   },
+  {
+    title: 'Email Categorizer',
+    description: 'A Python-based backend tool that scans unread emails, categorizes them, and sends automated replies to improve email productivity.',
+    techStack: ['Python', 'Gmail API', 'Google GenAI'],
+    githubUrl: 'https://github.com/faizi385/Email-Categorizer',
+    emoji: '📧',
+    image: '/images/picture6.png'
+  },  
+  {
+    title: 'Surely',
+    description: 'A secure platform that connects patient health records with professionals in minutes—streamlined, encrypted, and SOC 2-compliant.',
+    techStack: ['VueJs', 'AWS Cognito', 'Vuetify'],
+    githubUrl: 'https://github.com/faizi385/surely',
+    demoUrl: 'https://www.surely.nz/',
+    emoji: '🔐',
+    image: '/images/picture7.png'
+  },   
 ];
 
 const Projects = () => {
