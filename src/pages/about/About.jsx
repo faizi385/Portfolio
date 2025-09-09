@@ -1,28 +1,68 @@
 import { motion } from 'framer-motion';
-import { FaCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
+import { 
+  FaCode, FaServer, FaDatabase, FaTools, 
+  FaPhp, FaLaravel, FaReact, FaJs, FaHtml5, FaCss3Alt, 
+  FaVuejs, FaPython, FaDocker, FaGithub, FaFigma, FaAws 
+} from 'react-icons/fa';
+import { 
+  SiGraphql, SiTypescript, SiTailwindcss, SiBootstrap, 
+  SiMysql, SiPostgresql, SiMongodb, SiFirebase, 
+  SiPostman, SiDjango, SiVuetify 
+} from 'react-icons/si';
+import { VscVscode } from 'react-icons/vsc';
 
 const skills = [
   {
     category: 'Backend',
     icon: <FaServer className="text-primary-500 text-2xl" />,
-    items: ['PHP', 'Laravel', 'GrapQL', 'RESTful APIs', 'Python', 'Django']
+    items: [
+      { name: 'PHP', icon: <FaPhp className="text-blue-700" /> },
+      { name: 'Laravel', icon: <FaLaravel className="text-red-500" /> },
+      { name: 'GraphQL', icon: <SiGraphql className="text-pink-600" /> },
+      { name: 'RESTful APIs', icon: <FaCode className="text-green-500" /> },
+      { name: 'Python', icon: <FaPython className="text-blue-600" /> },
+      { name: 'Django', icon: <SiDjango className="text-green-700" /> }
+    ]
   },
   {
     category: 'Frontend',
     icon: <FaCode className="text-primary-500 text-2xl" />,
-    items: ['Vue.js', 'Vuetify', 'React', 'JavaScript', 'TypeScript', 'HTML5/CSS3', 'Tailwind CSS', 'Bootstrap']
+    items: [
+      { name: 'Vue.js', icon: <FaVuejs className="text-green-500" /> },
+      { name: 'Vuetify', icon: <SiVuetify className="text-blue-500" /> },
+      { name: 'React', icon: <FaReact className="text-blue-500" /> },
+      { name: 'JavaScript', icon: <FaJs className="text-yellow-400" /> },
+      { name: 'TypeScript', icon: <SiTypescript className="text-blue-600" /> },
+      { name: 'HTML5', icon: <FaHtml5 className="text-orange-500" /> },
+      { name: 'CSS3', icon: <FaCss3Alt className="text-blue-500" /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-cyan-400" /> },
+      { name: 'Bootstrap', icon: <SiBootstrap className="text-purple-600" /> }
+    ]
   },
   {
     category: 'Database',
     icon: <FaDatabase className="text-primary-500 text-2xl" />,
-    items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase']
+    items: [
+      { name: 'MySQL', icon: <SiMysql className="text-blue-600" /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql className="text-blue-700" /> },
+      { name: 'MongoDB', icon: <SiMongodb className="text-green-600" /> },
+      { name: 'Firebase', icon: <SiFirebase className="text-yellow-500" /> }
+    ]
   },
   {
     category: 'Tools',
     icon: <FaTools className="text-primary-500 text-2xl" />,
-    items: ['Git/GitHub', 'Docker', 'VS Code', 'Figma', 'Postman', 'AWS']
+    items: [
+      { name: 'Git/GitHub', icon: <FaGithub className="text-gray-800 dark:text-white" /> },
+      { name: 'Docker', icon: <FaDocker className="text-blue-500" /> },
+      { name: 'VS Code', icon: <VscVscode className="text-blue-500" /> },
+      { name: 'Figma', icon: <FaFigma className="text-purple-600" /> },
+      { name: 'Postman', icon: <SiPostman className="text-orange-500" /> },
+      { name: 'AWS', icon: <FaAws className="text-yellow-500" /> }
+    ]
   },
 ];
+
 
 const About = () => {
   return (
@@ -60,15 +100,42 @@ const About = () => {
               <div className="space-y-8">
                 {skills.map((skillGroup, index) => (
                   <div key={index}>
-                    <h4 className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4">{skillGroup.category}</h4>
+                    <motion.h4 
+                      className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-4"
+                      initial={{ x: -20, opacity: 0 }}
+                      whileInView={{ x: 0, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      {skillGroup.category}
+                    </motion.h4>
                     <div className="flex flex-wrap gap-2">
                       {skillGroup.items.map((skill, skillIndex) => (
-                        <span
+                        <motion.span
                           key={skillIndex}
-                          className="px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-full shadow-sm border border-gray-200 dark:border-gray-600 hover:bg-primary-50 dark:hover:bg-gray-600 transition-colors"
+                          className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-sm font-medium rounded-full shadow-sm border border-gray-200 dark:border-gray-600 hover:bg-primary-50 dark:hover:bg-gray-600 transition-colors cursor-default"
+                          initial={{ y: 10, opacity: 0 }}
+                          whileInView={{ 
+                            y: 0, 
+                            opacity: 1,
+                            transition: { 
+                              delay: skillIndex * 0.05,
+                              type: "spring",
+                              stiffness: 100,
+                              damping: 10
+                            } 
+                          }}
+                          viewport={{ once: true }}
+                          whileHover={{
+                            y: -3,
+                            scale: 1.03,
+                            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                            transition: { duration: 0.2 }
+                          }}
                         >
-                          {skill}
-                        </span>
+                          {skill.icon}
+                          {skill.name}
+                        </motion.span>
                       ))}
                     </div>
                   </div>
