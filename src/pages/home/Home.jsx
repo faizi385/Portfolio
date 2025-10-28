@@ -63,7 +63,6 @@ const TechOrbit = () => {
 
   return (
     <div className="relative w-full max-w-md h-96 mx-auto mb-12 md:mb-0 md:mr-12">
-      {/* Profile Image */}
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-white dark:bg-gray-800 shadow-xl overflow-hidden border-4 border-white dark:border-gray-700"
@@ -72,7 +71,7 @@ const TechOrbit = () => {
           transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         >
           <img 
-            src="/images/pic.jpeg" 
+            src="/images/still.png" 
             alt="Profile" 
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -82,8 +81,7 @@ const TechOrbit = () => {
           />
         </motion.div>
       </div>
-      
-      {/* Orbiting Icons */}
+
       <Orbit radius={120}>
         {techIcons.map(({ icon, color }, index) => (
           <OrbitingIcon 
@@ -102,17 +100,14 @@ const TechOrbit = () => {
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
-  // Check for dark mode and set up observer for theme changes
+
   useEffect(() => {
     const checkDarkMode = () => {
       setIsDarkMode(document.documentElement.classList.contains('dark'));
     };
-    
-    // Initial check
+
     checkDarkMode();
-    
-    // Observe theme changes
+
     const observer = new MutationObserver(checkDarkMode);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -127,7 +122,7 @@ const Home = () => {
   }, []);
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // load slim bundle
+
       await loadSlim(engine);
     }).then(() => {
       console.log("tsparticles engine ready");
@@ -147,14 +142,14 @@ const Home = () => {
                dark:from-dark-bg dark:to-gray-900 
                transition-colors duration-300 overflow-hidden"
   >
-    {/* Particles Background (scoped to Home only) */}
+
     <div className="absolute inset-0 w-full h-full z-0">
       <Particles
         id="tsparticles"
         className="w-full h-full"
         options={{
           fpsLimit: 60,
-          fullScreen: { enable: false }, // ⬅️ THIS is important
+          fullScreen: { enable: false }, 
           particles: {
             number: { value: 40, density: { enable: true, area: 800 } },
             color: { value: isDarkMode ? "#60a5fa" : "#3b82f6" },
@@ -180,7 +175,6 @@ const Home = () => {
     </div>
       <div className="container mx-auto px-6 py-12 md:py-20">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Left Text */}
           <div className="w-full md:w-1/2 text-center md:text-left mb-12 md:mb-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -211,7 +205,6 @@ const Home = () => {
               </p>
             </motion.div>
 
-            {/* Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -230,13 +223,12 @@ const Home = () => {
                 to="projects"
                 smooth={true}
                 duration={500}
-                className="cursor-pointer px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                className="cursor-pointer px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200font-medium rounded-lg transition-all duration-200  transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 View My Work
               </Link>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               className="flex justify-center md:justify-start space-x-6 mb-16"
               initial={{ opacity: 0, y: 20 }}
@@ -258,13 +250,11 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Right Orbit Section */}
           <div className="w-full md:w-1/2 flex justify-center">
             <TechOrbit />
           </div>
         </div>
 
-        {/* Scroll Down */}
         <motion.div
           className="hidden sm:flex absolute bottom-10 left-0 right-0 justify-center w-full"
           initial={{ opacity: 0, y: 20 }}
