@@ -3,7 +3,7 @@ import { useSwipeable } from 'react-swipeable';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const ProjectImageSlider = ({ images, image }) => {
-  // Handle both 'images' array and single 'image' prop
+
   const imageList = Array.isArray(images) ? images : image ? [image] : [];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -20,7 +20,7 @@ const ProjectImageSlider = ({ images, image }) => {
   };
 
   const handleWheel = (e) => {
-    // Only prevent default for vertical scroll
+
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
       e.preventDefault();
       

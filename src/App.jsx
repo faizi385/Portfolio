@@ -6,6 +6,7 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Projects from './pages/projects/Projects';
 import Contact from './pages/contact/Contact';
+import { Element } from 'react-scroll';
 import './App.css';
 
 function App() {
@@ -23,10 +24,18 @@ function App() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Home />
-              <About />
-              <Projects />
-              <Contact />
+              <Element name="home">
+                <Home />
+              </Element>
+              <Element name="about">
+                <About />
+              </Element>
+              <Element name="projects">
+                <Projects />
+              </Element>
+              <Element name="contact">
+                <Contact />
+              </Element>
             </motion.div>
           </AnimatePresence>
         </main>

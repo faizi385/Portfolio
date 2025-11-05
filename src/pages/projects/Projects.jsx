@@ -13,19 +13,17 @@ const techIcons = {
   'Bootstrap': <FaBootstrap className="text-purple-500" />,
   'MySql': <SiMysql className="text-blue-500" />,
   'TailwindCss': <SiTailwindcss className="text-cyan-400" />,
-  'inertiaJs': <span className="text-indigo-500">⚡</span>, // fallback since no icon
+  'inertiaJs': <span className="text-indigo-500">⚡</span>, 
   'React': <FaReact className="text-blue-400" />,
   'PostgreSQL': <SiPostgresql className="text-blue-600" />,
   'Python': <FaPython className="text-yellow-500" />,
   'Gmail API': <SiGmail className="text-red-500" />,
   'Google GenAI': <SiGoogleclassroom className="text-blue-400" />,
-  'AWS Cognito': <FaAws className="text-orange-500" />, // replaced SiAws
+  'AWS Cognito': <FaAws className="text-orange-500" />, 
   'Vuetify': <SiVuetify className="text-blue-500" />,
   'multitenant': <span className="text-gray-600 dark:text-gray-300">🏢</span>
 };
 
-
-// Sample project data - replace with your actual projects
 const projects = [
   {
     title: 'Stampbox',
@@ -36,7 +34,7 @@ const projects = [
     emoji: '',
     images: [
       '/images/stamp.png',
-      '/images/stamp1.png', // Add more images as needed
+      '/images/stamp1.png', 
       '/images/stamp2.png'
     ]
   },
@@ -156,8 +154,6 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-
-
 
                 <div className="flex space-x-3 mt-auto pt-4 border-t border-gray-100 dark:border-gray-700">
                   {project.githubUrl && (
