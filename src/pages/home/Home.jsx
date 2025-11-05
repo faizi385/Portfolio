@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown } from 'react-icons/fa';
 import { FaReact, FaVuejs, FaNodeJs, FaLaravel, FaPython, FaDocker, FaAws } from 'react-icons/fa';
 import { SiTypescript, SiJavascript, SiTailwindcss, SiMongodb, SiPostgresql } from 'react-icons/si';
@@ -7,6 +7,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import Loader from '../../components/ui/Loader';
 
 
 const Orbit = ({ radius = 200, children }) => {
@@ -100,6 +101,8 @@ const TechOrbit = () => {
 
 const Home = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [particlesReady, setParticlesReady] = useState(false);
 
   useEffect(() => {
     const checkDarkMode = () => {
@@ -120,28 +123,69 @@ const Home = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
+  
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-
-      await loadSlim(engine);
-    }).then(() => {
-      console.log("tsparticles engine ready");
-    });
+    let mounted = true;
+    
+    const init = async () => {
+      try {
+        await initParticlesEngine(loadSlim);
+        if (mounted) {
+          setParticlesReady(true);
+          // Set a minimum loading time of 1.5 seconds for better UX
+          setTimeout(() => {
+            if (mounted) setIsLoading(false);
+          }, 1500);
+        }
+      } catch (error) {
+        console.error("Particles initialization failed:", error);
+        if (mounted) setIsLoading(false);
+      }
+    };
+    
+    init();
+    
+    return () => {
+      mounted = false;
+    };
   }, []);
   
-  const particlesLoaded = useCallback((container) => {
-    console.log('Particles container loaded');
+  const particlesLoaded = useCallback(() => {
+    // We'll handle the loading state in the useEffect above
+    console.log('Particles container ready');
     return Promise.resolve();
   }, []);
 
   return (
-    <section
-    id="home"
-    className="relative min-h-screen flex items-center justify-center 
-               bg-gradient-to-b from-white to-gray-50 
-               dark:from-dark-bg dark:to-gray-900 
-               transition-colors duration-300 overflow-hidden"
-  >
+    <>
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-white dark:bg-gray-900"
+          >
+            <Loader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      <motion.section
+        id="home"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: isLoading ? 0 : 1,
+          transition: { 
+            duration: 0.5,
+            ease: "easeInOut"
+          }
+        }}
+        className={`relative min-h-screen flex items-center justify-center 
+                  bg-gradient-to-b from-white to-gray-50 
+                  dark:from-dark-bg dark:to-gray-900 ${isLoading ? 'pointer-events-none' : ''}`}
+      >
 
     <div className="absolute inset-0 w-full h-full z-0">
       <Particles
@@ -223,28 +267,32 @@ const Home = () => {
                 to="projects"
                 smooth={true}
                 duration={500}
-                className="cursor-pointer px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200font-medium rounded-lg transition-all duration-200  transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                className="cursor-pointer px-8 py-3.5 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
               >
                 View My Work
               </Link>
             </motion.div>
 
             <motion.div
-              className="flex justify-center md:justify-start space-x-6 mb-16"
+              className="flex justify-center md:justify-start space-x-6 mb-16 relative z-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
+              style={{ pointerEvents: 'auto' }}
             >
               <a href="https://github.com/faizi385" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 relative z-10"
+                style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}>
                 <FaGithub className="h-6 w-6" />
               </a>
               <a href="https://www.linkedin.com/in/faizan-moeen-918660350/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30">
+                className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 relative z-10"
+                style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}>
                 <FaLinkedin className="h-6 w-6" />
               </a>
               <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Twitter"
-                className="text-gray-500 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20">
+                className="text-gray-500 hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-400 transition-colors p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/20 relative z-10"
+                style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto' }}>
                 <FaTwitter className="h-6 w-6" />
               </a>
             </motion.div>
@@ -272,7 +320,8 @@ const Home = () => {
           </Link>
         </motion.div>
       </div>
-    </section>
+      </motion.section>
+    </>
   );
 };
 
